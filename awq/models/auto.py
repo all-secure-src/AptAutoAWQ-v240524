@@ -26,6 +26,8 @@ AWQ_CAUSAL_LM_MODEL_MAP = {
     "gemma": GemmaAWQForCausalLM,
     "stablelm": StableLmAWQForCausalLM,
     "starcoder2": Starcoder2AWQForCausalLM,
+    "cohere": CohereAWQForCausalLM,
+    "phi3": Phi3AWQForCausalLM,
 }
 
 
@@ -34,7 +36,7 @@ def check_and_get_model_type(model_dir, trust_remote_code=True, **model_init_kwa
         model_dir, trust_remote_code=trust_remote_code, **model_init_kwargs
     )
     if config.model_type not in AWQ_CAUSAL_LM_MODEL_MAP.keys():
-        raise TypeError(f"{config.model_type} isn't supported yet.")
+        raise TypeError(f"{config.model_type} isn't supported yet. (v240524)")
     model_type = config.model_type
     return model_type
 
